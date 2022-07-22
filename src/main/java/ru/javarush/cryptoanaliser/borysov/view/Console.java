@@ -40,4 +40,10 @@ public class Console {
         System.out.println("Введите ключ для раскодировки:");
         return scanner.next();
     }
+
+    public static Path loadFile() {
+        System.out.println("Введите путь файла, куда нужно сохранить файл");
+        Path path = Path.of(scanner.nextLine());
+        return path;
+    }
 }

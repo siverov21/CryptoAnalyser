@@ -6,8 +6,6 @@ import ru.javarush.cryptoanaliser.borysov.view.Console;
 
 import java.nio.file.Path;
 
-import static ru.javarush.cryptoanaliser.borysov.service.Encode.encoder;
-
 public class MainController {
 
     public MainController() {
@@ -18,15 +16,18 @@ public class MainController {
         String result =switch (command.toLowerCase()){
 
             case "encode"->{
-                Path path=Console.encodePathView();
+                Path pathLoadFile=Console.encodePathView();
+                Path pathOutputFile=Console.loadFile();
                 String key=Console.encodePath();
-                yield Encode.encoder(path,key);
+
+                yield Encode.encoder(pathLoadFile,pathOutputFile,key);
             }
 
             case "decode"->{
-                Path path=Console.decodePathView();
+                Path pathLoadFile=Console.decodePathView();
+                Path pathOutputFile=Console.loadFile();
                 String key=Console.decodePath();
-                yield Decode.decoder(path,key);
+                yield Decode.decoder(pathLoadFile,pathOutputFile,key);
             }
             case "bruteforce"->{
                 yield "f";

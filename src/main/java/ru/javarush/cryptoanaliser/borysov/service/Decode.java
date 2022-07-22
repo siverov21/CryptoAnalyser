@@ -3,7 +3,7 @@ package ru.javarush.cryptoanaliser.borysov.service;
 import java.nio.file.Path;
 
 public class Decode {
-    public static String decoder(Path path, String key) {
+    public static String decoder(Path path, Path pathOutputFile, String key) {
         return "заглушка";
     }
 }
