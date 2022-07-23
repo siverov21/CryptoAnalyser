@@ -18,9 +18,9 @@ public class Encode {
                 int indexChar = reader.read();
                 char origChar = (char) indexChar;
                 if (Alphabet.ALPHABET.indexOf(indexChar) != -1) {
-                    int origCharIndexInAlphabet = Alphabet.ALPHABET.indexOf(origChar);
-                    int encryptedChar = (origCharIndexInAlphabet + key) % Alphabet.ALPHABET.length();
-                    char newChar = Alphabet.ALPHABET.charAt(encryptedChar);
+                    int indexCharAlphabet = Alphabet.ALPHABET.indexOf(origChar);
+                    int encodeChar = (indexCharAlphabet + key) % Alphabet.ALPHABET.length();
+                    char newChar = Alphabet.ALPHABET.charAt(encodeChar);
                     writer.write(newChar);
                 }
             }

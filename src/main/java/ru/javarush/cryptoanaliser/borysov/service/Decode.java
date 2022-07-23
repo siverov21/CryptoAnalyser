@@ -15,13 +15,13 @@ public class Decode {
                 int indexChar = reader.read();
                 char origChar = (char) indexChar;
                 if (Alphabet.ALPHABET.indexOf(indexChar) != -1) {
-                    int origCharIndexInAlphabet = Alphabet.ALPHABET.indexOf(origChar);
-                    int decryptedIndex = (origCharIndexInAlphabet - key) % Alphabet.ALPHABET.length();
-                    if (decryptedIndex < 0) {
-                        decryptedIndex += Alphabet.ALPHABET.length();
+                    int indexCharAlphabet = Alphabet.ALPHABET.indexOf(origChar);
+                    int decodeChar = (indexCharAlphabet - key) % Alphabet.ALPHABET.length();
+                    if (decodeChar < 0) {
+                        decodeChar += Alphabet.ALPHABET.length();
                     }
-                    char newCharacter = Alphabet.ALPHABET.charAt(decryptedIndex);
-                    writer.write(newCharacter);
+                    char newChar = Alphabet.ALPHABET.charAt(decodeChar);
+                    writer.write(newChar);
                 }
             }
         } catch (IOException e) {
