@@ -10,5 +10,6 @@ public class Runner {
         String command = console.run();
         MainController mainController = new MainController();
         String result = mainController.extracted(command);
+        System.out.println(result);
     }
 }

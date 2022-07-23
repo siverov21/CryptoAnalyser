@@ -13,29 +13,28 @@ public class MainController {
     }
 
     public String extracted(String command) {
-        String result =switch (command.toLowerCase()){
+        return switch (command.toLowerCase()){
 
             case "encode"->{
-                Path pathLoadFile=Console.encodePathView();
+                Path pathInputFile=Console.encodePathView();
                 Path pathOutputFile=Console.loadFile();
-                String key=Console.encodePath();
+                int key=Console.encodePath();
 
-                yield Encode.encoder(pathLoadFile,pathOutputFile,key);
+                yield Encode.encoder(pathInputFile,pathOutputFile,key);
             }
 
             case "decode"->{
-                Path pathLoadFile=Console.decodePathView();
+                Path pathInputFile=Console.decodePathView();
                 Path pathOutputFile=Console.loadFile();
-                String key=Console.decodePath();
-                yield Decode.decoder(pathLoadFile,pathOutputFile,key);
+                int key=Console.decodePath();
+                yield Decode.decoder(pathInputFile,pathOutputFile,key);
             }
             case "bruteforce"->{
                 yield "f";
             }
             default ->{
-                yield "Ошибка";
+                yield "Такой команды не существует";
             }
         };
-        return result;
     }
 }

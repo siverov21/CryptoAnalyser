@@ -4,7 +4,7 @@ import java.nio.file.Path;
 import java.util.Scanner;
 
 public class Console {
-    public Console(){
+    public Console() {
 
     }
 
@@ -19,31 +19,29 @@ public class Console {
         return scanner.nextLine();
     }
 
-    public static Path encodePathView(){
+    public static Path encodePathView() {
         System.out.print("Введите путь файла, который нужно закодировать: ");
-        Path path = Path.of(scanner.nextLine());
-        return path;
+        return Path.of(scanner.nextLine());
     }
-    public static String encodePath(){
+
+    public static int encodePath() {
         System.out.println("Введите ключ для кодировки:");
-        return scanner.next();
+        return scanner.nextInt();
     }
 
 
     public static Path decodePathView() {
         System.out.println("Введите путь файла, который нужно раскодировать");
-        Path path = Path.of(scanner.nextLine());
-        return path;
+        return Path.of(scanner.nextLine());
     }
 
-    public static String decodePath() {
+    public static int decodePath() {
         System.out.println("Введите ключ для раскодировки:");
-        return scanner.next();
+        return scanner.nextInt();
     }
 
     public static Path loadFile() {
         System.out.println("Введите путь файла, куда нужно сохранить файл");
-        Path path = Path.of(scanner.nextLine());
-        return path;
+        return Path.of(scanner.nextLine());
     }
 }

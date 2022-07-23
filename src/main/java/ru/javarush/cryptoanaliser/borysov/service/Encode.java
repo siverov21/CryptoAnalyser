@@ -4,13 +4,11 @@ import ru.javarush.cryptoanaliser.borysov.constants.Alphabet;
 
 import java.io.*;
 import java.nio.file.Path;
-import java.util.ArrayList;
 
 public class Encode {
-    public Encode(Path path, String key) {}
 
 
-    public static String encoder(Path pathLoadFile, Path pathOutputFile, String key) {
+    public static String encoder(Path pathLoadFile, Path pathOutputFile, int key) {
 
         String alphabet = Alphabet.ALPHABET;
 
@@ -19,23 +17,20 @@ public class Encode {
 
         ) {
             while (reader.ready()) {
-                char key2 = (char) key.indexOf(0);
                 int originalChar = reader.read();
                 char origChar = (char) reader.read();
                 if (alphabet.indexOf(originalChar) != -1) {
 
                     int origCharIndexInAlphabet = alphabet.indexOf(origChar);
-                    int encryptedChar = (origCharIndexInAlphabet + (int) key2) % alphabet.length();
+                    int encryptedChar = (origCharIndexInAlphabet + key) % alphabet.length();
                     char newCharacter = alphabet.charAt(encryptedChar);
                     writer.write(newCharacter);
 
 
                 }
             }
-            return "заглушка";
+            return "Файл был успешно закодирован";
 
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
