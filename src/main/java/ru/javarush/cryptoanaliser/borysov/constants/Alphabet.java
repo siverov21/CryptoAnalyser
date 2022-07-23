@@ -1,6 +1,5 @@
 package ru.javarush.cryptoanaliser.borysov.constants;
 
-import java.util.ArrayList;
 import java.util.Locale;
 
 public class Alphabet {

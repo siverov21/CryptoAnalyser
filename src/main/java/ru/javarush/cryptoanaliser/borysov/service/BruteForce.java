@@ -1,14 +1,6 @@
 package ru.javarush.cryptoanaliser.borysov.service;
 
-import ru.javarush.cryptoanaliser.borysov.constants.Alphabet;
-
-import java.io.*;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class BruteForce {
 
 
@@ -18,7 +10,7 @@ public class BruteForce {
 
         for (int i = 1; i < 34; i++) {
             String i2= String.valueOf(i);
-            Path path2 = Path.of(String.valueOf(i2+pathOutputFile.getFileName()));
+            Path path2 = Path.of((i2+pathOutputFile.getFileName()));
             Decode.decoder(pathInputFile,path2,i);
         }
 

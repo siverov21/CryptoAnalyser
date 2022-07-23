@@ -25,7 +25,7 @@ public class Console {
     }
 
     public static int encodePath() {
-        System.out.println("Введите ключ для кодировки:");
+        System.out.println("Введите ключ:");
         return scanner.nextInt();
     }
 
@@ -36,7 +36,7 @@ public class Console {
     }
 
     public static int decodePath() {
-        System.out.println("Введите ключ для раскодировки:");
+        System.out.println("Введите ключ:");
         return scanner.nextInt();
     }
 

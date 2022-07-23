@@ -35,9 +35,7 @@ public class MainController {
                 Path pathOutputFile=Console.loadFile();
                 yield BruteForce.brute(pathInputFile,pathOutputFile);
             }
-            default ->{
-                yield "Такой команды не существует";
-            }
+            default -> "Такой команды не существует";
         };
     }
 }
