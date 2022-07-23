@@ -20,7 +20,7 @@ public class Console {
     }
 
     public static Path encodePathView() {
-        System.out.print("Введите путь файла, который нужно закодировать: ");
+        System.out.println("Введите путь файла, который нужно закодировать: ");
         return Path.of(scanner.nextLine());
     }
 
@@ -31,7 +31,7 @@ public class Console {
 
 
     public static Path decodePathView() {
-        System.out.println("Введите путь файла, который нужно раскодировать");
+        System.out.println("Введите путь файла, который нужно раскодировать:");
         return Path.of(scanner.nextLine());
     }
 

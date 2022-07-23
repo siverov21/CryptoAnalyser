@@ -8,30 +8,22 @@ import java.nio.file.Path;
 public class Decode {
     public static String decoder(Path pathInputFile, Path pathOutputFile, int key) {
 
-        String alphabet = Alphabet.ALPHABET;
-
         try (Reader reader = new FileReader(String.valueOf(pathInputFile));
              Writer writer = new FileWriter(String.valueOf(pathOutputFile))
-
         ) {
-
             while (reader.ready()) {
-                int originalChar = reader.read();
-                char origChar = (char) reader.read();
-                if (alphabet.indexOf(origChar) != -1) {
-
-                    int origCharIndexInAlphabet = alphabet.indexOf(origChar);
-                    int decryptedIndex = (origCharIndexInAlphabet - key) % alphabet.length();
+                int indexChar = reader.read();
+                char origChar = (char) indexChar;
+                if (Alphabet.ALPHABET.indexOf(indexChar) != -1) {
+                    int origCharIndexInAlphabet = Alphabet.ALPHABET.indexOf(origChar);
+                    int decryptedIndex = (origCharIndexInAlphabet - key) % Alphabet.ALPHABET.length();
                     if (decryptedIndex < 0) {
-                        decryptedIndex += alphabet.length();
+                        decryptedIndex += Alphabet.ALPHABET.length();
                     }
-                    char newCharacter = alphabet.charAt(decryptedIndex);
+                    char newCharacter = Alphabet.ALPHABET.charAt(decryptedIndex);
                     writer.write(newCharacter);
-
-
                 }
             }
-
         } catch (IOException e) {
             throw new ArithmeticException(e.getMessage());
         }
